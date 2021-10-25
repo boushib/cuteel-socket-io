@@ -14,8 +14,8 @@ app.get('/', (req: Request, res: Response) => {
 })
 
 io.on('connection', (socket) => {
-  socket.on('order', (notification) => {
-    io.emit('order', notification)
+  socket.on('notification', (notification) => {
+    io.emit('notification', notification)
   })
 })
 
