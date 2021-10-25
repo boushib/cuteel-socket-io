@@ -4,8 +4,11 @@ export enum NotificationType {
 }
 
 export type Notification = {
+  _id: string
   type: NotificationType
   message: string
   date: string
   url: string
+  seen: boolean
+  acted: boolean
 }
