@@ -39,10 +39,9 @@ app.get('/', (req: Request, res: Response) => {
 
 io.on('connection', (socket) => {
   socket.on('joinRoom', async (room: string) => {
-    const roomHistory = await redisGetAsync(room)
-    if (!roomHistory) return
-    const history = JSON.parse(roomHistory)
-    socket.emit('roomHistory', history)
+    const history = await redisGetAsync(room)
+    if (!history) return
+    socket.emit('roomHistory', JSON.parse(history))
   })
 
   socket.on('notification', (notification) => {
